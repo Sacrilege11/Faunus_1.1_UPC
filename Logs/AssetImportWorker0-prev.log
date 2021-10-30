@@ -15,11 +15,11 @@ C:/Users/Gastón/Desktop/VIDEOJUEGOS/DIPLOMATURA EN VIDEOJUEGOS - UPC/Plataforme
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54673
+51865
 Successfully changed project path to: C:/Users/Gastón/Desktop/VIDEOJUEGOS/DIPLOMATURA EN VIDEOJUEGOS - UPC/Plataformero 3D/Faunus 1.1
 C:/Users/Gastón/Desktop/VIDEOJUEGOS/DIPLOMATURA EN VIDEOJUEGOS - UPC/Plataformero 3D/Faunus 1.1
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 50.44 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 43.24 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.2f1 (8fd9074bf66c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Resources/UnitySubsystems
@@ -35,23 +35,64 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56464
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56620
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.172259 seconds.
+Registered in 0.002139 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 369.73 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 36.36 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  7.425 seconds
+- Completed reload, in  2.831 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.018618 seconds.
+Registered in 0.003342 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.43 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.080 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1737 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.0 MB.
+System memory in use after: 87.7 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 2181.
+Total: 3.032400 ms (FindLiveObjects: 0.168700 ms CreateObjectMapping: 0.054100 ms MarkObjects: 2.412000 ms  DeleteObjects: 0.396300 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Fbx/PreFabs/CamPuzzlePlatforms.prefab
+  artifactKey: Guid(9fa9e3221830cd54fae4e71bfbab5787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fbx/PreFabs/CamPuzzlePlatforms.prefab using Guid(9fa9e3221830cd54fae4e71bfbab5787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b98a29a74e72e98189427e2a1bc6c459') in 0.143180 seconds
+  Import took 0.147858 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000615 seconds.
+  path: Assets/Fbx/PreFabs/Puzzles.prefab
+  artifactKey: Guid(05d956a411098134f96bf81ac02f70d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fbx/PreFabs/Puzzles.prefab using Guid(05d956a411098134f96bf81ac02f70d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffeb9da61f950b9e1cc0e244850acbd5') in 0.014346 seconds
+  Import took 0.018610 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.624281 seconds.
+  path: Assets/PreFabs
+  artifactKey: Guid(6738abc3a5d15d24e88bb0672c3d5715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreFabs using Guid(6738abc3a5d15d24e88bb0672c3d5715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1b40811ec330f845fec3bfda92d30c5') in 0.005378 seconds
+  Import took 0.012807 seconds .
+
