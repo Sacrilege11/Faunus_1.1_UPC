@@ -74,6 +74,7 @@ public class ObjectRotation : MonoBehaviour
             if ( Input.GetKey(KeyCode.E))
             {
                 //transform.Rotate( _currentRotation.x + Time.deltaTime * velocity, _currentRotation.y, _currentRotation.z);
+                
                 transform.rotation = Quaternion.Euler(_currentRotation.x++, _currentRotation.y, _currentRotation.z);
                 
                 
