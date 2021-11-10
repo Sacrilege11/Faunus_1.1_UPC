@@ -12,8 +12,10 @@ public class ObjectRotation : MonoBehaviour
     [SerializeField] private bool _axisX = true;
     [SerializeField] private bool _axisY = true;
     [SerializeField] private bool _axisZ = true;
-    public static bool somePlatformIsSelected;  
-    
+    [SerializeField] float _degreesToRotate;
+    [SerializeField] private float _speedRotation = 2f;
+    [SerializeField] private float sidesOfThePiece;
+    private bool _rotationLock;
     
     
     
@@ -22,15 +24,17 @@ public class ObjectRotation : MonoBehaviour
 
     private void Start()
     {
-        somePlatformIsSelected = false;
         
-        
+        _degreesToRotate = 360.0f/sidesOfThePiece;
         counterTab = 0;
         Selectors();
-    }
+        PuzzleResolve _puzzleResolve = transform.GetComponent<PuzzleResolve>();
+        _puzzleResolve.OnPuzzleResolve.AddListener(lockRotation);
+}
 
     void Update()
     {
+        
         
         if (_isSelected)
         {
@@ -43,9 +47,8 @@ public class ObjectRotation : MonoBehaviour
   
         }
         
-        //transform.LookAt(transform.position + _currentRotation.eulerAngles);
 
-        
+
     }
 
     void CounterReset()
@@ -72,19 +75,21 @@ public class ObjectRotation : MonoBehaviour
     {
         if (counterTab == 0 && _axisX)
         {
-            if ( Input.GetKey(KeyCode.E))
+            if ( Input.GetKeyDown(KeyCode.E))
             {
                 //transform.Rotate( _currentRotation.x + Time.deltaTime * velocity, _currentRotation.y, _currentRotation.z);
-                
-                transform.rotation = Quaternion.Euler(_currentRotation.x++, _currentRotation.y, _currentRotation.z);
+                //transform.rotation = Quaternion.Euler(_currentRotation.x++, _currentRotation.y, _currentRotation.z);
+                LeanTween.rotateAroundLocal(gameObject, Vector3.right, _degreesToRotate,_speedRotation);
                 
                 
             } 
-            else if (Input.GetKey(KeyCode.Q))
+            else if (Input.GetKeyDown(KeyCode.Q))
             {
                 //transform.Rotate(_currentRotation.x - Time.deltaTime * velocity, _currentRotation.y, _currentRotation.z);
-                transform.rotation = Quaternion.Euler(_currentRotation.x--, _currentRotation.y, _currentRotation.z);
+                //transform.rotation = Quaternion.Euler(_currentRotation.x--, _currentRotation.y, _currentRotation.z);
+                LeanTween.rotateAroundLocal(gameObject, Vector3.left, _degreesToRotate,_speedRotation);
             }
+            
         }
         
     }
@@ -95,17 +100,17 @@ public class ObjectRotation : MonoBehaviour
     {
         if (counterTab == 1 && _axisY)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 
-                transform.rotation = Quaternion.Euler(_currentRotation.x, _currentRotation.y++, _currentRotation.z);
+                LeanTween.rotateAroundLocal(gameObject, Vector3.up, _degreesToRotate,_speedRotation);
                 
                 
             } 
-            else if (Input.GetKey(KeyCode.Q)) 
+            else if (Input.GetKeyDown(KeyCode.Q)) 
             {
                 
-                transform.rotation = Quaternion.Euler(_currentRotation.x, _currentRotation.y--, _currentRotation.z);
+                LeanTween.rotateAroundLocal(gameObject, Vector3.down, _degreesToRotate,_speedRotation);
             }
         }
         
@@ -115,17 +120,19 @@ public class ObjectRotation : MonoBehaviour
     {
         if (counterTab == 2 && _axisZ)
         {
-            if (Input.GetKey(KeyCode.E))
+            
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 
-                transform.rotation = Quaternion.Euler(_currentRotation.x, _currentRotation.y, _currentRotation.z++);
+                
+                RotateControll(Vector3.forward);
                 
 
             } 
-            else if (Input.GetKey(KeyCode.Q))
+            else if (Input.GetKeyDown(KeyCode.Q))
             {
                 
-                transform.rotation = Quaternion.Euler(_currentRotation.x, _currentRotation.y, _currentRotation.z--);
+                RotateControll(Vector3.back);
             }
         }
     }
@@ -156,5 +163,22 @@ public class ObjectRotation : MonoBehaviour
         private void OnTriggerExit(Collider other)
         {
             _isSelected = false;
+        }
+
+        private void RotateControll(Vector3 vec3)
+        {
+            if (_rotationLock)
+            {
+                return;
+            }
+
+            _rotationLock = true;
+            LeanTween.rotateAroundLocal(gameObject, vec3, _degreesToRotate,_speedRotation).setOnComplete(() => { _rotationLock = false; });
+            
+        }
+
+        public void lockRotation(PuzzleResolve arg0)
+        {
+            Destroy(this);
         }
 }

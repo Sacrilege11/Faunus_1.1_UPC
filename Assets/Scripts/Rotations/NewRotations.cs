@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 [ExecuteInEditMode]
 public class NewRotations : MonoBehaviour
@@ -9,29 +11,47 @@ public class NewRotations : MonoBehaviour
     public Transform endPosition;
     private Quaternion _currentRotation;
     public float degrees;
-    public float lerpSlider = 1f;
+    public float lerpSlider = 2f;
     public float distanceToSleerp;
+
+    [SerializeField] private int sidesOfThePiece;
+    private float _degreesToRotate;
+    private float _rotation;
+
+
+
+
+    private void Start()
+    {
+        _degreesToRotate = 360.0f / sidesOfThePiece;
+        
+        
+
+
+    }
 
     void Update()
     {
-       BridgeMovement();
+        
+        
+        
         _currentRotation = transform.rotation;
+        var _rotationPos = _currentRotation.eulerAngles.x + 90.0f;
+        var _rotationNeg = transform.rotation.eulerAngles.x - 90.0f; 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            BridgeMovement();
-            // var angle = transform.localEulerAngles.x;
-            // {
-            //     
-            //     transform.rotation = Quaternion.Euler(_currentRotation.x++, _currentRotation.y, _currentRotation.x);
-            // }
             
+            LeanTween.rotateAroundLocal(gameObject, Vector3.right, _degreesToRotate,lerpSlider);
+            //LeanTween.rotateLocal(gameObject, new Vector3(_rotationPos, _currentRotation.y, _currentRotation.z), lerpSlider);
+            //LeanTween.rotateX(gameObject, _currentRotation.x + 90.0f, lerpSlider);
+
+
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            for (int i = 0; i < degrees; i++)
-            {
-                transform.rotation = Quaternion.Euler(_currentRotation.x--, _currentRotation.y, _currentRotation.x);
-            }
+            LeanTween.rotateAroundLocal(gameObject, Vector3.left , _degreesToRotate,lerpSlider);
+            //LeanTween.rotateLocal(gameObject, new Vector3(_rotationNeg, _currentRotation.y, _currentRotation.z), lerpSlider);
+            //LeanTween.rotateX(gameObject, _currentRotation.x - 90.0f, lerpSlider);
             
         }
         

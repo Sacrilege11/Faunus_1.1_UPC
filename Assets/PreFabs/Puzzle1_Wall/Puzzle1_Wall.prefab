@@ -359,6 +359,10 @@ PrefabInstance:
       propertyPath: _axisZ
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 464923056052154562, guid: 05d956a411098134f96bf81ac02f70d4, type: 3}
+      propertyPath: sidesOfThePiece
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1232650817643854846, guid: 05d956a411098134f96bf81ac02f70d4, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
@@ -471,6 +475,10 @@ PrefabInstance:
       propertyPath: _axisZ
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1745826715735520321, guid: 05d956a411098134f96bf81ac02f70d4, type: 3}
+      propertyPath: sidesOfThePiece
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1745826715735520332, guid: 05d956a411098134f96bf81ac02f70d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -506,6 +514,10 @@ PrefabInstance:
     - target: {fileID: 4273353117708241024, guid: 05d956a411098134f96bf81ac02f70d4, type: 3}
       propertyPath: _axisZ
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273353117708241024, guid: 05d956a411098134f96bf81ac02f70d4, type: 3}
+      propertyPath: sidesOfThePiece
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4601450456087649673, guid: 05d956a411098134f96bf81ac02f70d4, type: 3}
       propertyPath: m_Enabled

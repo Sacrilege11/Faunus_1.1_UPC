@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using Debug = UnityEngine.Debug;
 
 public class PuzzleResolve : MonoBehaviour
@@ -13,9 +14,10 @@ public class PuzzleResolve : MonoBehaviour
     private ObjectRotation _objectRotation;
     private ParticleSystem _particleSystem;
     private AudioSource _audio;
-    private bool _itsResolve ;
+    
     public GameObject allPuzzles;
     private AllPuzzlesResolve _allPuzzles;
+    public PuzzleResolveEvent OnPuzzleResolve = new PuzzleResolveEvent();
 
     private void Start()
     {
@@ -26,27 +28,16 @@ public class PuzzleResolve : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        if (_itsResolve)
-        {
-            PuzzleItsResolve();
-        }
-            
-        
-    }
+
 
     public void SetResolution(bool itsResolve)
     {
         if(itsResolve)
         {
-            //Debug.Log("Me llegó el msj de que colisionó.");
-            _itsResolve = true;
+            OnPuzzleResolve.Invoke(this);
+            PuzzleItsResolve();
         }
-        else
-        {
-            _itsResolve = false;
-        }
+
 
     }
 
@@ -55,15 +46,15 @@ public class PuzzleResolve : MonoBehaviour
     {
         _particleSystem.Play();
         _audio.Play();
-        _objectRotation.enabled = false;
-        _itsResolve = false;
-        _allPuzzles.countPuzzlesSolved();
+        //_objectRotation.enabled = false;
+        
+        //_allPuzzles.countPuzzlesSolved();
 
 
 
     }
-    
 
+    public class PuzzleResolveEvent : UnityEvent<PuzzleResolve> {}
 
 
 }

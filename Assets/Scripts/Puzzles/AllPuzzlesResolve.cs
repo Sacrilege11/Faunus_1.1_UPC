@@ -2,49 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AllPuzzlesResolve : MonoBehaviour
 {
     public static int allPuzzlesResolved;
-
+    public UnityEvent AllPuzzlesAreResolved = new UnityEvent();
+    private List<PuzzleResolve> _puzzles = new List<PuzzleResolve>();
     
     
-    public GameObject winExitMenu;
+    
     
     
     void Start()
     {
-        allPuzzlesResolved = 0;
         
-
-    }
-
-    
-    void Update()
-    {
-        if (allPuzzlesResolved == 3){
-            //winExitMenu.SetActive(true);
-            //Time.timeScale = 0f;
-            //BridgeMovement();
+        PuzzleResolve [] puzzleResolve = transform.GetComponentsInChildren<PuzzleResolve>();
+        allPuzzlesResolved = puzzleResolve.Length;
+        for (int i = 0; i < allPuzzlesResolved; i++)
+        {
+            puzzleResolve[i].OnPuzzleResolve.AddListener(countPuzzlesSolved);
+            _puzzles.Add(puzzleResolve[i]);
             
         }
-        else
-        {
-            //winExitMenu.SetActive(false);
-        }
         
-    }
 
-    public void countPuzzlesSolved()
+    }
+    
+
+    public void countPuzzlesSolved(PuzzleResolve arg0)
     {
-        allPuzzlesResolved++;
+        Debug.Log("Entro el puzzle.");
+        if (_puzzles.Contains(arg0))
+        { 
+            Debug.Log("Entro el puzzle 1 vez.");
+            _puzzles.Remove(arg0);
+        allPuzzlesResolved--;
+        if (_puzzles.Count <= 0)
+        {
+            AllPuzzlesAreResolved.Invoke();
+            
+        }
+        }
+
     }
 
-    // private void BridgeMovement()
-    // {
-    //     var platform1V3 = platformBridge1.position; 
-    //     Vector3 movement1 = new Vector3(platform1V3.x, platform1V3.y,
-    //         platform1V3.z + 1.8f);
-    //     Vector3.Lerp(platform1V3, movement1, 1f);
-    // }
+
 }

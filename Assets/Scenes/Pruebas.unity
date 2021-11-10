@@ -346,8 +346,9 @@ MonoBehaviour:
   starPosition: {fileID: 1623639399}
   endPosition: {fileID: 2087360490}
   degrees: 0
-  lerpSlider: 10
+  lerpSlider: 1
   distanceToSleerp: 0
+  sidesOfThePiece: 1
 --- !u!65 &1643983519
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -418,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643983516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.35296, y: -21.37, z: 132.73601}
+  m_LocalPosition: {x: -87.35296, y: -21.37, z: 135.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

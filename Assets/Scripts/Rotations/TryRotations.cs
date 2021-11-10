@@ -7,6 +7,7 @@ public class TryRotations : MonoBehaviour
 {
     private Quaternion _currentRotation;
     public float degrees;
+    
 
     private void Start()
     {
