@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 public class ObjectRotation : MonoBehaviour
 {
-    private Quaternion _currentRotation;
+    [SerializeField] private Quaternion _currentRotation;
     public int counterTab;
     private bool _isSelected = false; 
     [SerializeField] private bool _axisSelector = true;
@@ -23,7 +23,7 @@ public class ObjectRotation : MonoBehaviour
     private void Start()
     {
         somePlatformIsSelected = false;
-        _currentRotation = transform.rotation;
+        
         
         counterTab = 0;
         Selectors();
@@ -31,12 +31,13 @@ public class ObjectRotation : MonoBehaviour
 
     void Update()
     {
+        
         if (_isSelected)
         {
+            
             CounterReset();
             InputRotationManager();
             RotationX();
-            RotationX2();
             RotationY();
             RotationZ();
   
@@ -88,26 +89,7 @@ public class ObjectRotation : MonoBehaviour
         
     }
 
-
-    private void RotationX2()
-    {
-        if (gameObject.CompareTag("PlatformRotate2") && counterTab == 0 && _axisX)
-        {
-            if (Input.GetKey(KeyCode.T))
-            {
-
-                transform.rotation = Quaternion.Euler(_currentRotation.x++, _currentRotation.y, _currentRotation.z);
-
-
-            }
-            else if (Input.GetKey(KeyCode.Y))
-            {
-
-                transform.rotation = Quaternion.Euler(_currentRotation.x--, _currentRotation.y, _currentRotation.z);
-            }
-        }
-
-    }
+    
 
     private void RotationY()
     {

@@ -23,13 +23,5 @@ public class CollisionCheck : MonoBehaviour
             _puzzleResolve.SetResolution(true);
         }
     }
-
-    public void OnCollisionEnter(Collision other)
-    {
-         
-        
-
-    }
-
-
+    
 }
